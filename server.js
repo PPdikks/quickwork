@@ -1,17 +1,19 @@
-const express= require('express')
-const app=express()
-const PORT=3009;
-const add=require('./notes.js')
+const express = require('express');
+const app = express();
+const PORT = 3009;
+const add = require('./notes.js');
 
-app.get('/',function(req,res){
-    add.addNum(1,2)
-    res.send('welcome to the page')
-})
+app.get('/', function (req, res) {
+    add.addNum(1, 2); // Calls addNum from notes.js
+    setTimeout(() => {
+        res.send('Welcome to the page after 5 seconds');
+    }, 5000); // Add a 5-second delay
+});
 
-app.get('/hey',(req,res)=>{ // inline function as well 
-    res.send('Hello bachalog')
-})
+app.get('/hey', (req, res) => {
+    res.send('Hello bachalog');
+});
 
-app.listen(3009 ,()=>{
-    console.log('The server is listening to PORT 3009')
-})
+app.listen(PORT, () => {
+    console.log(`The server is listening on PORT ${PORT}`);
+});
