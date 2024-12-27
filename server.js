@@ -12,7 +12,9 @@ app.get('/', (req, res) => {
 
 
 app.get('/hey', (req, res) => {
+    setTimeout(() =>{
     res.send('Hello bachalog!');
+    },4000);
 });
 
 
